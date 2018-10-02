@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <name>[KV] Keep Hands &amp; Feet - B19</name>
+    <author>Kiame Vivacity</author>
+    <targetVersion>0.19.0</targetVersion>
+	<url>https://ludeon.com/forums/index.php?topic=45989.0</url>
+    <description>Lets pawns with bionic arms and legs keep there hands and feet. 
+
+Works with mods that add bionic hands and feet.
+
+If you have pawns with bionic arms and legs already, adding this mod will force the game to display that they are missing hands and feet, the mod is not removeing hands and feet, they are already gone. However if you add bionics to a pawn after installing the mod they should not automatically loose hands/feet.
+
+This does the same thing as Don't take my feet but re-written from the ground up.
+
+Thanks To:
+Joseph - original idea</description>
+</ModMetaData>
