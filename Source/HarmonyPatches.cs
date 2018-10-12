@@ -90,22 +90,22 @@ namespace WeaponStorage
                         if (rightArm.parts.Remove(rightHand))
                             torso.parts.Add(rightHand);
                         else
-                            Log.Error("Unable to change Right Foot location");
+                            Log.Warning("[" + d.defName + "] Unable to change Right Foot location");
 
                         if (leftArm.parts.Remove(leftHand))
                             torso.parts.Add(leftHand);
                         else
-                            Log.Error("Unable to change Left Hand location");
+                            Log.Warning("[" + d.defName + "] Unable to change Left Hand location");
 
                         if (rightLeg.parts.Remove(rightFoot))
                             torso.parts.Add(rightFoot);
                         else
-                            Log.Error("Unable to change Right Foot location");
+                            Log.Warning("[" + d.defName + "] Unable to change Right Foot location");
 
                         if (leftLeg.parts.Remove(leftFoot))
                             torso.parts.Add(leftFoot);
                         else
-                            Log.Error("Unable to change Left Foot location");
+                            Log.Warning("[" + d.defName + "] Unable to change Left Foot location");
                     }
                 }
             }
