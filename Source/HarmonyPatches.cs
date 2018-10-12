@@ -36,6 +36,9 @@ namespace WeaponStorage
                 initialized = true;
                 foreach (BodyDef d in DefDatabase<BodyDef>.AllDefs)
                 {
+                    if (d.defName.ToLower().Equals("monkey"))
+                        continue;
+
                     BodyPartRecord rightArm = null,
                                    leftArm = null,
                                    rightHand = null,
