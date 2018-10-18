@@ -1,12 +1,9 @@
 ﻿using Harmony;
 using RimWorld;
-using RimWorld.Planet;
 using System;
-using System.Collections.Generic;
 using System.Reflection;
+using System.Text;
 using Verse;
-using Verse.AI;
-using Verse.AI.Group;
 
 namespace WeaponStorage
 {
@@ -34,11 +31,10 @@ namespace WeaponStorage
             if (!initialized)
             {
                 initialized = true;
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("KeepHandsFeet trying to relocate hands and feet:");
                 foreach (BodyDef d in DefDatabase<BodyDef>.AllDefs)
                 {
-                    if (d.defName.ToLower().Equals("monkey"))
-                        continue;
-
                     BodyPartRecord rightArm = null,
                                    leftArm = null,
                                    rightHand = null,
@@ -82,14 +78,12 @@ namespace WeaponStorage
                         }
                     }
 
+                    bool handsMoved = false, feetMoved = false;
                     if (rightArm != null && rightHand != null &&
                         leftArm != null && leftHand != null &&
-                        rightLeg != null && rightFoot != null &&
-                        leftLeg != null && leftFoot != null &&
                         torso != null)
                     {
-                        Log.Message("[" + d.defName + "] Moving Hands and Feet so they're not be tied to Arms and Legs");
-
+                        handsMoved = true;
                         if (rightArm.parts.Remove(rightHand))
                             torso.parts.Add(rightHand);
                         else
@@ -99,7 +93,13 @@ namespace WeaponStorage
                             torso.parts.Add(leftHand);
                         else
                             Log.Warning("[" + d.defName + "] Unable to change Left Hand location");
+                    }
 
+                    if (rightLeg != null && rightFoot != null &&
+                        leftLeg != null && leftFoot != null &&
+                        torso != null)
+                    {
+                        feetMoved = true;
                         if (rightLeg.parts.Remove(rightFoot))
                             torso.parts.Add(rightFoot);
                         else
@@ -110,7 +110,23 @@ namespace WeaponStorage
                         else
                             Log.Warning("[" + d.defName + "] Unable to change Left Foot location");
                     }
+
+                    if (handsMoved || feetMoved)
+                    {
+                        sb.Append("    [");
+                        sb.Append(d.defName);
+                        sb.Append("]");
+                        if (handsMoved)
+                            sb.Append(" hands");
+                        if (handsMoved && feetMoved)
+                            sb.Append(" and");
+                        if (feetMoved)
+                            sb.Append(" feet");
+                        sb.Append(" moved.");
+                        sb.Append(Environment.NewLine);
+                    }
                 }
+                Log.Message(sb.ToString());
             }
         }
     }

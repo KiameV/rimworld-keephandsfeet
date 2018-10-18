@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModSyncNinjaData>
-  <ID>b29a9ae8-ef7b-48aa-9472-f575321439fb</ID>
-  <ModName>[KV] Keep Hands &amp; Feet - B19</ModName>
-  <Version>0.19.1.0</Version>
+  <ModName>Keep Hands &amp; Feet</ModName>
+  <Version>1.0.0.1</Version>
   <SaveBreaking>False</SaveBreaking>
   <Host name="Github">
     <Owner>KiameV</Owner>
