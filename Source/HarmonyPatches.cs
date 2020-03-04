@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using RimWorld;
 using System;
 using System.Reflection;
@@ -12,7 +12,7 @@ namespace WeaponStorage
     {
         static HarmonyPatches()
         {
-            var harmony = HarmonyInstance.Create("com.keephandsfeet.rimworld.mod");
+            var harmony = new Harmony("com.keephandsfeet.rimworld.mod");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
 
             Log.Message(
